@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>PCA, t-SNE, and UMAP</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Fengling Hu" />
+    <meta name="date" content="2020-07-02" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# PCA, t-SNE, and UMAP
+## while revisiting some RMarkdown ideas
+### Fengling Hu
+### 2020-07-02
+
+---
+
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+
+class: center, bottom
+
+# xaringan
+
+### /ʃaː.'riŋ.ɡan/
+
+---
+
+```r
+options(htmltools.dir.version = FALSE)
+
+#loads ggplot2, dplyr, tidyr, and more
+library(tidyverse)
+#theme for ggplot2
+library(hrbrthemes)
+#code for tsne
+library(tsne)
+#code for umap
+library(umap)
+#code for PCA
+library(FactoMineR)
+#sets figure size and echo = F default
+knitr::opts_chunk$set(fig.width=4,
+                      fig.height=4,
+                      echo = F) 
+```
+
+---
+class: inverse, center, middle
+
+# PCA
+
+---
+# What is PCA?
+
+* Stands for Principle Components Analysis
+
+* Method based in linear algebra (works with matrices)
+
+* A way of "squinting" at data such that the data "looks" a certain way
+
+    * The first direction (axis) you "squint" along contains the most information
+
+    * Given the first axis, the second axis you "squint" along contains the next-most information AND is perpendicular to the first axis
+
+    * And so on, until you've "looked" along all axes
+
+* Each of these new axes you have found are called "principle components" (PCs)
+
+* Essentially, PCA is a rotation of some high-dimensional space, such that the rotation has certain special properties
+
+---
+class: inverse, center, middle
+
+# Primer in Linear Algebra
+
+---
+
+* The normal Cartesian plane has the x axis and y axis
+
+
+```r
+df &lt;- data.frame(x = 5, y = 4)
+ggplot(df) + geom_point(aes(x, y)) + 
+  geom_vline(xintercept = 0, linetype = "dotted") + 
+  geom_hline(yintercept = 0, linetype = "dotted") +
+  xlim(-10, 10) + ylim(-10, 10) + 
+  theme_ipsum_rc()
+```
+
+![](PCA,-t-SNE,-and-UMAP_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+
+.footnote[
+[1] All figures were generated with ggplot2. I'll hide the ggplot2 code for future figures.
+[2] I did SO much Googling to remember how to do things in ggplot2. It's part of the process.
+[3] I've never made a presentation in RMarkdown before, so I knitted almost every time I made a change. [4] I crashed my computer three times.
+]
+---
+![](PCA,-t-SNE,-and-UMAP_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+
+* We can define any point by how much we have to "walk" in the x and y directions, from the point (0, 0) to get there
+
+    * This point is named (5, 4) and can't be named anything else
+
+    * (5, 4) refers to this point and isn't the name of anything else
+
+* But there's no reason we have to "walk" along the x and y axes
+
+    * For example, we can also define points by how much we walk along the lines `\(y = x\)` and `\(y = -x\)`
+
+---
+* So what does this look like?
+
+![](PCA,-t-SNE,-and-UMAP_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+--
+* Now, the same point is called (4.5, -0.5)
+
+* We "walk" 4.5 units along `\(y = x\)` and -0.5 units along `\(y = -x\)`
+
+* Nothing is actually changing, we are just changing our perspective
+
+--
+* BUT look at how close the point is to one of our new axes!
+
+    * If we just called it (4.5), we would be mostly correct! (Off by 0.5)
+
+    * Compare to the "default" perspective. If we called the point (5), we would be off by 4
+
+---
+
+* Of note, our "new" perspective still has perpendicular (also called "orthogonal") axes
+
+    * There's no reason why this has to be the case
+
+    * But they behave nicely and PCA always finds perpendicular axes
+--
+* Also note our "default" perspective had two axes and so does our new one
+
+    * This has to be the case
+
+    * Axes cannot be parallel (or else you couldn't move "up" or "down")
+---
+
+# Back to PCA
+
+* Essentially, PCA asks, "Is there some special perspective we can take so some axes 'carry' more information?"
+
+![](PCA,-t-SNE,-and-UMAP_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+--
+![](PCA,-t-SNE,-and-UMAP_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+* If we squint along this line, we can refer to every point by only one number and be **mostly** correct!
+
+.footnote[
+I visually guess-timated this line...
+]
+
+---
+
+# Example
+* Of course, we are still losing information, unless we use as many axes as we originally had
+
+* BUT while each axis in "default" perspective carries, on average, 1/d (1/2 in two dimensions) of the information, we can rotate our axes to "concentrate" information along certain axes
+
+* PCA is guaranteed to find the best axes to concentrate information (also called "explain variance").
+
+--
+
+
+```r
+pc &lt;- PCA(mtcars, graph = F) # in the FactoMineR package
+pc$eig
+```
+
+```
+##        eigenvalue percentage of variance cumulative percentage of variance
+## comp 1  1.8676594              93.382969                          93.38297
+## comp 2  0.1323406               6.617031                         100.00000
+```
+
+* In our plot, the axis I drew (assuming I guess-timated correctly) accounts for 93.38% of the information ("variance") in the data
+
+* If we needed to use fewer dimensions, we could just use that one and only lose 6.617% of the information in the data!
+
+---
+
+# High-Dimensional Example
+* This process generalizes to higher dimensions easily (though it's impossible to think about intuitively)
+
+* We can look at the MNIST dataset, which contains a lot of images of digits
+
+
+
+![](PCA,-t-SNE,-and-UMAP_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+
+* We can run PCA on this dataset (784 dimensions!)
+
+
+```
+##        eigenvalue percentage of variance cumulative percentage of variance
+## comp 1   41.35690               6.768724                          6.768724
+## comp 2   29.33068               4.800439                         11.569163
+## comp 3   26.19476               4.287195                         15.856357
+## comp 4   20.84289               3.411275                         19.267633
+## comp 5   18.67169               3.055923                         22.323555
+```
+---
+
+# Take-aways
+* The first two PCs don't do well at separating digits
+
+    * Note the axes are less meaningful - one of the costs of PCA
+
+![](PCA,-t-SNE,-and-UMAP_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+--
+
+* This is entirely expected as the first two PCs only explain 11.5691628 of the total variation (I used R code to display this number!)
+    
+    * Also, while PCA has applications in visualization, it is NOT specifically built for it
+    
+    * PCA has uses in dimension reduction, PC-regression, and more
+
+---
+class: inverse, center, middle
+
+# t-SNE
+---
+# What is t-SNE?
+
+* Stands for t-distributed Stochastic Neighbor Embedding
+    
+    * Involves an element of randomness (stochastic). PCA always gives the same, best result. t-SNE can't guarantee "best" but looks for "as good as it can find"
+    
+    * Looks to preserve high-dimensional local neighborhoods, but doesn't care about global relationships
+    
+    * Involves a t-distribution (looks like a normal distribution, but fades out more slowly.)
+    
+* Specifically designed for visualization - it's used for nothing else
+
+---
+# Intuition
+
+* In high-dimensional space, everything is REALLY far away from everything else
+
+    * In 1-D, the (0) and (1) are only 1 unit away from each other
+    
+    * But in 2-D, maybe the points are actually (0, 0) and (1, 10000) - they're now more than 10,000 units apart
+    
+    * As you add dimensions, the problem becomes exponentially worse
+    
+* So t-SNE gives up, pretty much entirely, on preserving global (far away) relationships and focuses on local relationships
+
+    * Gets highly penalized when it places nearby points far away from each other, but not much penalty if it places far points too far or not far enough
+    
+    * Also, has to use a special, probability-based measurement for "distance," since things are all far in "normal" distance (Euclidean)
+    
+---
+# Example
+* We can run t-SNE on our MNIST dataset to plot ("embed") the high-dimensional data in two dimensions (k = 2)
+
+    * You can also embed into three dimensions, but 3-D visualizations (for t-SNE and anything else) are **almost** always a bad idea because our brains interpret them in 2-D
+
+* Perplexity is the main tuning parameter in t-SNE and changes the balance of emphasis in global and local relationships
+
+    * High perplexity emphasizes global relationships
+    
+    * Low perplexity emphasizes local relationships
+    
+* Need to try multiple perplexities to find one that works for your solution (5-50 is suggested)
+---
+
+
+```r
+mnistTSNE &lt;- tsne(mnist[, 1:784], k = 2, max_iter = 500, perplexity = 20)
+
+*mnistTSNE &lt;- mnistTSNE %&gt;% cbind(mnist$y) %&gt;% as.data.frame()
+mnistTSNE$V3 &lt;- as.factor(mnistTSNE$V3)
+
+
+ggplot(mnistTSNE) + geom_point(aes(V1, V2, color = V3)) + theme_ipsum_rc()
+```
+
+![](PCA,-t-SNE,-and-UMAP_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+
+---
+# Take-aways
+* This looks a lot better than PCA!
+
+    * Could probably look even better if I tried more perplexities, or allowed more iterations to try and "improve" the embedding
+    
+    
+* Because global structure is so deemphasized, cluster size does not mean anything
+
+    * Neither do distances between clusters
+    
+    * Axes are entirely arbitrary. PCA axes have some meaning based on what variables make up the axes you are "squinting" down, but t-SNE axes truly mean nothing.
+
+.footnote[
+Check out this site for some great interactive visualizations! https://distill.pub/2016/misread-tsne/
+]
+
+---
+
+class: inverse, center, middle
+
+# UMAP
+
+---
+# What is UMAP?
+
+* Stands for Uniform Manifold Approximation and Projection
+
+* Intuition of UMAP is very similar to t-SNE
+
+    * Prioritizes local structure
+    
+    * Uses some different measurement for distance
+    
+    * Is stochastic (can't solve for "best" but improves as much as it can)
+    
+* Also has tuning parameters (n_neighbors and min_dist) to balance emphasis on local vs global structure
+
+    * High values for both emphasize global structure
+    
+    * Low valuesfor both emphasize local structure
+    
+* BUT claims to be faster than t-SNE AND preserve more global structure
+
+---
+
+```r
+mnistUMAP &lt;- umap(mnist[, 1:784])
+
+
+mnistUMAP &lt;- mnistUMAP[[1]] %&gt;% cbind(mnist$y) %&gt;% as.data.frame()
+mnistUMAP$V3 &lt;- as.factor(mnistUMAP$V3)
+
+
+ggplot(mnistUMAP) + geom_point(aes(V1, V2, color = V3)) + theme_ipsum_rc()
+```
+
+![](PCA,-t-SNE,-and-UMAP_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+
+.footnote[
+This site has amazing visualizations. https://pair-code.github.io/understanding-umap/
+]
+
+---
+
+# Take-aways
+* Like in t-SNE, tuning parameters matter
+
+* Cluster sizes are meaningless
+
+* Cluster distances, while more meaningful than t-SNE, are still very meaningless
+
+* Axes are also meaningless
+
+---
+
+# t-SNE vs UMAP
+
+* As far as I understand, t-SNE is still used often
+
+    * Partly because it was the first major breakthrough in high-dimensional visualization
+    
+    * Party because people are more familiar with it, since it's been around longer
+    
+* But UMAP completely dominates t-SNE in every way
+
+    * Fills the exact same niche as t-SNE 
+    
+    * (Comparing to PCA, PCA is much worse at visualization, but has arguable advantages in terms of interpretability. PCA also has other applications.)
+    
+    * Preserves more global structure and faster!
+    
+---
+
+class: inverse, center, middle
+
+# Questions?
+
+---
+
+
+```r
+ggplot(iris) + geom_boxplot(aes(Species, Sepal.Length))
+```
+
+![](PCA,-t-SNE,-and-UMAP_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+
+```r
+ggplot(iris) + geom_boxplot(aes(Species, Sepal.Length), outlier.shape = NA) + 
+  geom_jitter(aes(Species, Sepal.Length))
+```
+
+![](PCA,-t-SNE,-and-UMAP_files/figure-html/unnamed-chunk-13-2.png)&lt;!-- --&gt;
+
+---
+
+```r
+ggplot(iris) + geom_boxplot(aes(Species, Sepal.Length), outlier.shape = NA) + geom_jitter(aes(Species, Sepal.Length)) + labs(title = "ggplot Demo")
+```
+
+![](PCA,-t-SNE,-and-UMAP_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+
+```r
+ggplot(iris) + geom_boxplot(aes(Species, Sepal.Length), outlier.shape = NA) + 
+  geom_jitter(aes(Species, Sepal.Length)) + labs(title = "ggplot Demo") + theme_ipsum_rc()
+```
+
+![](PCA,-t-SNE,-and-UMAP_files/figure-html/unnamed-chunk-14-2.png)&lt;!-- --&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+(function(time) {
+  var d2 = function(number) {
+    return ('0' + number).slice(-2); // left-pad 0 to minutes/seconds
+  },
+
+  time_format = function(total) {
+    var secs = Math.abs(total) / 1000;
+    var h = Math.floor(secs / 3600);
+    var m = Math.floor(secs % 3600 / 60);
+    var s = Math.round(secs % 60);
+    var res = d2(m) + ':' + d2(s);
+    if (h > 0) res = h + ':' + res;
+    return res;  // [hh:]mm:ss
+  },
+
+  slide_number_div = function(i) {
+    return document.getElementsByClassName('remark-slide-number').item(i);
+  },
+
+  current_page_number = function(i) {
+    return slide_number_div(i).firstChild.textContent;  // text "i / N"
+  };
+
+  var timer = document.createElement('span'); timer.id = 'slide-time-left';
+  var time_left = time, k = slideshow.getCurrentSlideIndex(),
+      last_page_number = current_page_number(k);
+
+  setInterval(function() {
+    time_left = time_left - 1000;
+    timer.innerHTML = ' ' + time_format(time_left);
+    if (time_left < 0) timer.style.color = 'red';
+  }, 1000);
+
+  slide_number_div(k).appendChild(timer);
+
+  slideshow.on('showSlide', function(slide) {
+    var i = slide.getSlideIndex(), n = current_page_number(i);
+    // reset timer when a new slide is shown and the page number is changed
+    if (last_page_number !== n) {
+      time_left = time; last_page_number = n;
+      timer.innerHTML = ' ' + time_format(time); timer.style.color = null;
+    }
+    slide_number_div(i).appendChild(timer);
+  });
+})(60000);
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
