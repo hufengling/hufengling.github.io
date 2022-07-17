@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>1 | Academic</title>
+    <title>1 | Fengling Hu</title>
     <link>https://hufengling.github.io/publication-type/1/</link>
       <atom:link href="https://hufengling.github.io/publication-type/1/index.xml" rel="self" type="application/rss+xml" />
     <description>1</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jul 2013 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://hufengling.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <url>https://hufengling.github.io/media/icon_huaf85219b4391ff353d2327db4c7bce15_32099_512x512_fill_lanczos_center_3.png</url>
       <title>1</title>
       <link>https://hufengling.github.io/publication-type/1/</link>
     </image>
     
     <item>
-      <title>An example conference paper</title>
-      <link>https://hufengling.github.io/publication/example/</link>
-      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://hufengling.github.io/publication/example/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code, math, and images&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <title>Navigating New Motherhood: Evaluating the Role of Patient-Navigator Communication on Postpartum Follow-Up in a Low-Income Community.</title>
+      <link>https://hufengling.github.io/publication/strohbach-2017-navigating/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/strohbach-2017-navigating/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Patient and Provider Evaluation of a Postpartum Patient Navigation Program to Improve Postpartum Care Among Publicly Insured Women</title>
+      <link>https://hufengling.github.io/publication/hu-2017-patient/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/hu-2017-patient/</guid>
+      <description></description>
     </item>
     
   </channel>
