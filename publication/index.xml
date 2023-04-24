@@ -5,7 +5,7 @@
     <link>https://hufengling.github.io/publication/</link>
       <atom:link href="https://hufengling.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 22 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 15 Apr 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://hufengling.github.io/media/icon_huaf85219b4391ff353d2327db4c7bce15_32099_512x512_fill_lanczos_center_3.png</url>
       <title>Publications</title>
@@ -13,18 +13,18 @@
     </image>
     
     <item>
-      <title>Voxel-wise intermodal coupling analysis of two or more modalities using local covariance decomposition</title>
-      <link>https://hufengling.github.io/publication/pimco/</link>
-      <pubDate>Wed, 22 Jun 2022 00:00:00 +0000</pubDate>
-      <guid>https://hufengling.github.io/publication/pimco/</guid>
+      <title>Image harmonization - A review of statistical and deep learning methods for removing batch effects and evaluation metrics for effective harmonization</title>
+      <link>https://hufengling.github.io/publication/harmreview/</link>
+      <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/harmreview/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Translatability Analysis of National Institutes of Health–Funded Biomedical Research That Applies Artificial Intelligence</title>
-      <link>https://hufengling.github.io/publication/harmreview/</link>
-      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://hufengling.github.io/publication/harmreview/</guid>
+      <title>Voxel-wise intermodal coupling analysis of two or more modalities using local covariance decomposition</title>
+      <link>https://hufengling.github.io/publication/pimco/</link>
+      <pubDate>Wed, 22 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/pimco/</guid>
       <description></description>
     </item>
     
