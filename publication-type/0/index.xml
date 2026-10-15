@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>0 | Fengling (Feng) Hu</title>
+    <link>https://hufengling.github.io/publication-type/0/</link>
+      <atom:link href="https://hufengling.github.io/publication-type/0/index.xml" rel="self" type="application/rss+xml" />
+    <description>0</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hufengling.github.io/media/icon_huaf85219b4391ff353d2327db4c7bce15_32099_512x512_fill_lanczos_center_3.png</url>
+      <title>0</title>
+      <link>https://hufengling.github.io/publication-type/0/</link>
+    </image>
+    
+    <item>
+      <title>Functional connectivity development along the sensorimotor-association axis enhances the cortical hierarchy. Nat. Commun. 15, 3511</title>
+      <link>https://hufengling.github.io/publication/luo-2024-functional/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/luo-2024-functional/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

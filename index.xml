@@ -5,7 +5,7 @@
     <link>https://hufengling.github.io/</link>
       <atom:link href="https://hufengling.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Fengling (Feng) Hu</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 15 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://hufengling.github.io/media/icon_huaf85219b4391ff353d2327db4c7bce15_32099_512x512_fill_lanczos_center_3.png</url>
       <title>Fengling (Feng) Hu</title>
@@ -13,10 +13,162 @@
     </image>
     
     <item>
+      <title>dGAMLSS: an exact, distributed algorithm to fit Generalized Additive Models for Location, Scale, and Shape for privacy-preserving population reference charts</title>
+      <link>https://hufengling.github.io/publication/hu-2026-dgamlss/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/hu-2026-dgamlss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Imputation-Based Harmonization Mitigates Site Effects Without Data Leakage in Machine Learning Studies</title>
+      <link>https://hufengling.github.io/publication/hillman-2026-imputation/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/hillman-2026-imputation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mRNA-LNP hepatitis C vaccine encoding p7 elicits improved humoral immunogenicity</title>
+      <link>https://hufengling.github.io/publication/reagan-2026-mrna/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/reagan-2026-mrna/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Two axes of white matter development</title>
+      <link>https://hufengling.github.io/publication/luo-2026-two/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/luo-2026-two/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>An educational intervention to reduce regulated medical waste: the inpatient medicine and outpatient dermatology settings</title>
+      <link>https://hufengling.github.io/publication/silva-2025-educational/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/silva-2025-educational/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Asymmetric Pulmonary Artery Geometry Drives Branch-Specific Shear Stress Patterns in Repaired Tetralogy of Fallot: A Substudy of the Single Center Cardiac Magnetic Resonance Outcomes Registry--Tetralogy of Fallot</title>
+      <link>https://hufengling.github.io/publication/bhattacharya-2025-asymmetric/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/bhattacharya-2025-asymmetric/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Automated segmentation of multiple sclerosis lesions, paramagnetic rims, and central vein sign on MRI provides reliable diagnostic biomarkers</title>
+      <link>https://hufengling.github.io/publication/hu-2025-automated/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/hu-2025-automated/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cardiovascular magnetic resonance imaging traits associated with adverse right ventricular remodeling in repaired tetralogy of Fallot: A Single Center Outcomes Using cardiovascular magnetic resonance in Tetralogy of Fallot study</title>
+      <link>https://hufengling.github.io/publication/thompson-2025-cardiovascular/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/thompson-2025-cardiovascular/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mapping individual differences in intermodal coupling in neurodevelopment</title>
+      <link>https://hufengling.github.io/publication/pan-2025-mapping/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/pan-2025-mapping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pneumococcal revaccination in pediatric patients with sinusitis</title>
+      <link>https://hufengling.github.io/publication/cohen-2025-pneumococcal/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/cohen-2025-pneumococcal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pulmonary Artery Shear Stress and Oscillatory Shear Index are Associated with Right Ventricular Remodeling in Repaired Tetralogy of Fallot</title>
+      <link>https://hufengling.github.io/publication/thompson-2025-pulmonary/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/thompson-2025-pulmonary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DeepComBat: A Statistically Motivated, Hyperparameter-Robust, Deep Learning Approach to Harmonization of Neuroimaging Data</title>
+      <link>https://hufengling.github.io/publication/hu-2024-deepcombat/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/hu-2024-deepcombat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Functional connectivity development along the sensorimotor-association axis enhances the cortical hierarchy. Nat. Commun. 15, 3511</title>
+      <link>https://hufengling.github.io/publication/luo-2024-functional/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/luo-2024-functional/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Perivascular spaces show restrained temporal evolution in multiple sclerosis</title>
+      <link>https://hufengling.github.io/publication/cannon-2024-perivascular/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/cannon-2024-perivascular/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Subject-Level Segmentation Precision Weights for Volumetric Studies Involving Label Fusion</title>
+      <link>https://hufengling.github.io/publication/chen-2024-subject/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/chen-2024-subject/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Taste and smell function in Wilson&#39;s disease</title>
+      <link>https://hufengling.github.io/publication/salmon-2024-taste/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/salmon-2024-taste/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Image harmonization - A review of statistical and deep learning methods for removing batch effects and evaluation metrics for effective harmonization</title>
       <link>https://hufengling.github.io/publication/harmreview/</link>
       <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
       <guid>https://hufengling.github.io/publication/harmreview/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development of white matter fiber covariance networks supports executive function in youth</title>
+      <link>https://hufengling.github.io/publication/bagautdinova-2023-development/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/bagautdinova-2023-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image harmonization: A review of statistical and deep learning methods for removing batch effects and evaluation metrics for effective harmonization</title>
+      <link>https://hufengling.github.io/publication/hu-2023-image/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/hu-2023-image/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The etiology and evolution of magnetic resonance imaging-visible perivascular spaces: Systematic review and meta-analysis</title>
+      <link>https://hufengling.github.io/publication/okar-2023-etiology/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/okar-2023-etiology/</guid>
       <description></description>
     </item>
     
@@ -37,6 +189,14 @@
     </item>
     
     <item>
+      <title>7 tesla magnetic resonance imaging has superior sensitivity for enlarged perivascular spaces compared to 3 tesla in multiple sclerosis</title>
+      <link>https://hufengling.github.io/publication/ineichen-20227/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/ineichen-20227/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Associations of mindfulness, food security, and health literacy with diabetes-related perinatal health outcomes</title>
       <link>https://hufengling.github.io/publication/yee-2022-associations/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
@@ -45,10 +205,50 @@
     </item>
     
     <item>
+      <title>Correction for Rando et al.,“Pathogenesis, Symptomatology, and Transmission of SARS-CoV-2 through Analysis of Viral Genomics and Structure”</title>
+      <link>https://hufengling.github.io/publication/rando-2022-correction/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/rando-2022-correction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development of an unsupervised, automated segmentation algorithm for enlarged perivascular spaces on 7 tesla magnetic resonance imaging</title>
+      <link>https://hufengling.github.io/publication/hu-2022-development/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/hu-2022-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Translatability analysis of national institutes of health--funded biomedical research that applies artificial intelligence</title>
+      <link>https://hufengling.github.io/publication/eweje-2022-translatability/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/eweje-2022-translatability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Voxel-wise intermodal coupling analysis of two or more modalities using local covariance decomposition</title>
+      <link>https://hufengling.github.io/publication/hu-2022-voxel/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/hu-2022-voxel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Ferroportin 3 is a dual-targeted mitochondrial/chloroplast iron exporter necessary for iron homeostasis in Arabidopsis</title>
       <link>https://hufengling.github.io/publication/kim-2021-ferroportin/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
       <guid>https://hufengling.github.io/publication/kim-2021-ferroportin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pathogenesis, symptomatology, and transmission of SARS-CoV-2 through analysis of viral genomics and structure</title>
+      <link>https://hufengling.github.io/publication/rando-2021-pathogenesis/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/rando-2021-pathogenesis/</guid>
       <description></description>
     </item>
     
@@ -109,7 +309,7 @@
     </item>
     
     <item>
-      <title>Patient and Provider Evaluation of a Postpartum Patient Navigation Program to Improve Postpartum Care Among Publicly Insured Women</title>
+      <title>Patient and provider evaluation of a postpartum patient navigation program to improve postpartum care among publicly insured women</title>
       <link>https://hufengling.github.io/publication/hu-2017-patient/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
       <guid>https://hufengling.github.io/publication/hu-2017-patient/</guid>
@@ -133,7 +333,7 @@
     </item>
     
     <item>
-      <title>No Pain Labor &amp; Delivery: A Global Health Initiative’s Impact on Clinical Outcomes in China</title>
+      <title>No pain labor &amp; delivery: a global health initiative’s impact on clinical outcomes in China</title>
       <link>https://hufengling.github.io/publication/hu-2016-no/</link>
       <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
       <guid>https://hufengling.github.io/publication/hu-2016-no/</guid>

@@ -5,12 +5,36 @@
     <link>https://hufengling.github.io/publication-type/1/</link>
       <atom:link href="https://hufengling.github.io/publication-type/1/index.xml" rel="self" type="application/rss+xml" />
     <description>1</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://hufengling.github.io/media/icon_huaf85219b4391ff353d2327db4c7bce15_32099_512x512_fill_lanczos_center_3.png</url>
       <title>1</title>
       <link>https://hufengling.github.io/publication-type/1/</link>
     </image>
+    
+    <item>
+      <title>Perivascular spaces show restrained temporal evolution in multiple sclerosis</title>
+      <link>https://hufengling.github.io/publication/cannon-2024-perivascular/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/cannon-2024-perivascular/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>7 tesla magnetic resonance imaging has superior sensitivity for enlarged perivascular spaces compared to 3 tesla in multiple sclerosis</title>
+      <link>https://hufengling.github.io/publication/ineichen-20227/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/ineichen-20227/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development of an unsupervised, automated segmentation algorithm for enlarged perivascular spaces on 7 tesla magnetic resonance imaging</title>
+      <link>https://hufengling.github.io/publication/hu-2022-development/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://hufengling.github.io/publication/hu-2022-development/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Navigating New Motherhood: Evaluating the Role of Patient-Navigator Communication on Postpartum Follow-Up in a Low-Income Community.</title>
@@ -21,7 +45,7 @@
     </item>
     
     <item>
-      <title>Patient and Provider Evaluation of a Postpartum Patient Navigation Program to Improve Postpartum Care Among Publicly Insured Women</title>
+      <title>Patient and provider evaluation of a postpartum patient navigation program to improve postpartum care among publicly insured women</title>
       <link>https://hufengling.github.io/publication/hu-2017-patient/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
       <guid>https://hufengling.github.io/publication/hu-2017-patient/</guid>
